@@ -65,6 +65,7 @@
 @if($prettyphoto)
     <link href="{{ $asset_name }}/{{ $plugin_name }}/prettyphoto/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
 @endif
+
     <!-- Custom CSS -->
     <link href="{{ $asset_name }}/{{ $css_name }}/custom.css" type="text/css" rel="stylesheet" />
 

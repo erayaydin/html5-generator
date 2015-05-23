@@ -4,8 +4,58 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a8c9bc04a5706bf54f2a6d2e62168e90",
+    "hash": "6a8efa0ad3f31560db7345289385d2e7",
     "packages": [
+        {
+            "name": "chumper/zipper",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chumper/Zipper.git",
+                "reference": "9c5660c5193246a6ffcc483b31353bef6429128a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chumper/Zipper/zipball/9c5660c5193246a6ffcc483b31353bef6429128a",
+                "reference": "9c5660c5193246a6ffcc483b31353bef6429128a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "4.x",
+                "illuminate/support": "4.x",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chumper\\Zipper": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Plaschke",
+                    "email": "github@nilsplaschke.de",
+                    "homepage": "http://nilsplaschke.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is a little neat helper for the ZipArchive methods with handy functions",
+            "homepage": "http://github.com/Chumper/zipper",
+            "keywords": [
+                "archive",
+                "laravel",
+                "zip"
+            ],
+            "time": "2014-11-25 20:57:48"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.2",

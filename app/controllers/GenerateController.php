@@ -8,7 +8,7 @@ class GenerateController extends BaseController {
 
     public function store() {
         $rules = [
-            "project_name" => "alpha_dash",
+            "project_name" => "required|alpha_dash",
             "asset_name"   => "alpha_dash",
             "image_name"   => "alpha_dash",
             "css_name"     => "alpha_dash",
@@ -20,6 +20,12 @@ class GenerateController extends BaseController {
 
         if($validator->fails())
             return \Redirect::route("generate")->withInput()->withErrors($validator);
+
+        $asset_name = Input::has("asset_name") ? Input::get("asset_name") : "assets";
+        $css_name = Input::has("css_name") ? Input::get("css_name") : "css";
+        $image_name = Input::has("image_name") ? Input::get("image_name") : "images";
+        $js_name = Input::has("js_name") ? Input::get("js_name") : "js";
+        $plugin_name = Input::has("plugin_name") ? Input::get("plugin_name") : "plugins";
 
         $favicon     = Input::has("favicon") && Input::get("favicon") != "" ? true : false;
         $opengraph   = Input::has("opengraph") && Input::get("opengraph") != "" ? true : false;
@@ -36,11 +42,11 @@ class GenerateController extends BaseController {
 
         $indexContent = \View::make("source")->with(array(
             "project_name"  => Input::get("project_name"),
-            "asset_name"    => Input::get("asset_name"),
-            "image_name"    => Input::get("image_name"),
-            "css_name"      => Input::get("css_name"),
-            "js_name"       => Input::get("js_name"),
-            "plugin_name"   => Input::get("plugin_name"),
+            "asset_name"    => $asset_name,
+            "image_name"    => $image_name,
+            "css_name"      => $css_name,
+            "js_name"       => $js_name,
+            "plugin_name"   => $plugin_name,
             "favicon"       => $favicon,
             "opengraph"     => $opengraph,
             "twittercard"   => $twittercard,
@@ -54,10 +60,33 @@ class GenerateController extends BaseController {
             "prettyphoto"   => $prettyphoto
         ));
 
-        return $indexContent;
-        // Generate project.zip
+        $zipname = str_random(40);
 
-        // Download project.zip
+        $zip = Zipper::make(public_path()."/projects/".$zipname.".zip");
+        $zip->addString("index.html", $indexContent);
+        $zip->folder($asset_name."/".$css_name)->addString("custom.css", null);
+        $zip->folder($asset_name."/".$css_name)->addString("core.css", null);
+        $zip->folder($asset_name."/".$js_name)->addString("custom.js", null);
+        $zip->folder($asset_name."/".$js_name)->addString("core.js", null);
+        if($favicon)
+            $zip->folder($asset_name."/".$image_name)->addString("favicon.ico", null);
+        if($animate)
+            $zip->folder($asset_name."/".$plugin_name."/animate")->add(storage_path()."/assets/animate/");
+        if($bootstrap)
+            $zip->folder($asset_name."/".$plugin_name."/bootstrap")->add(storage_path()."/assets/bootstrap/");
+        if($jquery)
+            $zip->folder($asset_name."/".$plugin_name."/jquery")->add(storage_path()."/assets/jquery/");
+        if($jqueryui)
+            $zip->folder($asset_name."/".$plugin_name."/jqueryui")->add(storage_path()."/assets/jqueryui/");
+        if($meyerreset)
+            $zip->folder($asset_name."/".$plugin_name."/meyerreset")->add(storage_path()."/assets/meyerreset/");
+        if($normalize)
+            $zip->folder($asset_name."/".$plugin_name."/normalize")->add(storage_path()."/assets/normalize/");
+        if($prettyphoto)
+            $zip->folder($asset_name."/".$plugin_name."/prettyphoto")->add(storage_path()."/assets/prettyphoto/");
+
+        $zip->close();
+        return ResponseHelper::downloadAndDelete(public_path()."/projects/".$zipname.".zip", Input::get("project_name").".zip");
     }
 
 }

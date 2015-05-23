@@ -4,7 +4,8 @@
 	"keywords": ["html5", "boilerplate", "generator"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "Chumper/Zipper": "0.5.0"
 	},
 	"autoload": {
 		"classmap": [
