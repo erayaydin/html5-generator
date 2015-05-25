@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             {{ Form::label("plugin_name", Lang::get("keywords.plugindirname")) }}
-                            {{ Form::text("plugin_name", Input::old("plugin_name"), array("class" => "form-control", "placeholder" => Lang::get("keywords.default", array("name" => "plugins")))) }}
+                            {{ Form::text("plugin_name", Input::old("plugin_name"), array("class" => "form-control", "placeholder" => Lang::get("keywords.default", array("name" => "bower_components")))) }}
                         </div>
                     </div>
                 </div>
@@ -72,12 +72,6 @@
                             <label>
                                 {{ Form::checkbox("normalize", true, Input::old("normalize")) }}
                                 Normalize
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                {{ Form::checkbox("meyerreset", true, Input::old("meyerreset")) }}
-                                Meyer Reset CSS
                             </label>
                         </div>
                         <div class="checkbox">

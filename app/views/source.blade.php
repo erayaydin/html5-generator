@@ -41,29 +41,25 @@
 @endif
 
     <!-- Core CSS -->
-@if($meyerreset)
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/meyerreset/reset.css" type="text/css" rel="stylesheet" />
-@endif
 @if($normalize)
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/normalize/normalize.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/normalize.css/normalize.css" type="text/css" rel="stylesheet" />
 @endif
     <link href="{{ $asset_name }}/{{ $css_name }}/core.css" type="text/css" rel="stylesheet" />
 
     <!-- CSS Plugins -->
 @if($animate)
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/animate/animate.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/animate.css/animate.min.css" type="text/css" rel="stylesheet" />
 @endif
 @if($bootstrap)
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/bootstrap/dist/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet" />
 @endif
 @if($jqueryui)
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/jqueryui/jquery-ui.min.css" type="text/css" rel="stylesheet" />
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/jqueryui/jquery-ui.structure.min.css" type="text/css" rel="stylesheet" />
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/jqueryui/jquery-ui.theme.min.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/jqueryui/themes/base/jquery-ui.min.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/jqueryui/themes/base/base.css" type="text/css" rel="stylesheet" />
 @endif
 @if($prettyphoto)
-    <link href="{{ $asset_name }}/{{ $plugin_name }}/prettyphoto/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
+    <link href="{{ $plugin_name }}/prettyphoto/css/prettyPhoto.css" type="text/css" rel="stylesheet" />
 @endif
 
     <!-- Custom CSS -->
@@ -77,16 +73,16 @@
 
 <!-- JS Plugins -->
 @if($jquery)
-<script type="text/javascript" src="{{ $asset_name }}/{{ $plugin_name }}/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="{{ $plugin_name }}/jquery/dist/jquery.min.js"></script>
 @endif
 @if($jqueryui)
-<script type="text/javascript" src="{{ $asset_name }}/{{ $plugin_name }}/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ $plugin_name }}/jqueryui/jquery-ui.min.js"></script>
 @endif
 @if($bootstrap)
-<script type="text/javascript" src="{{ $asset_name }}/{{ $plugin_name }}/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ $plugin_name }}/bootstrap/dist/js/bootstrap.min.js"></script>
 @endif
 @if($prettyphoto)
-<script type="text/javascript" src="{{ $asset_name }}/{{ $plugin_name }}/prettyphoto/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="{{ $plugin_name }}/prettyphoto/js/jquery.prettyPhoto.js"></script>
 @endif
 
 <!-- Custom JS -->
