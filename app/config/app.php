@@ -133,6 +133,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Chumper\Zipper\ZipperServiceProvider',
+        'Way\Generators\GeneratorsServiceProvider',
 
 	),
 
